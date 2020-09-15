@@ -14,6 +14,7 @@ namespace WpfApp1
 
 		#region Fields
 
+		private bool _checked = false;
 		private string _message;
 		private int _outNumber = 0;
 
@@ -41,6 +42,15 @@ namespace WpfApp1
 
 		#region Properties
 
+		public bool Checked
+		{
+			get => _checked;
+			set
+			{
+				_checked = value;
+				OnPropertyChanged();
+			}
+		}
 		public String Message
 		{
 			get => _message;

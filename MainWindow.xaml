@@ -18,7 +18,7 @@
 				<TextBox Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}" />
 			</StackPanel>
 		</TabItem>
-		<TabItem Header="Number Relay" IsSelected="True">
+		<TabItem Header="Number Relay">
 			<StackPanel>
 				<StackPanel Orientation="Horizontal">
 					<Label>Output:</Label>
@@ -34,6 +34,33 @@
 							TickPlacement="Both"
 							Value="{Binding OutNumber}" />
 				</StackPanel>
+			</StackPanel>
+		</TabItem>
+		<TabItem Header="Visibility Styling" IsSelected="True">
+			<StackPanel>
+				<StackPanel.Resources>
+					<Style TargetType="TextBlock">
+						<Setter Property="FontWeight"
+									Value="Bold" />
+						<Style.Triggers>
+							<DataTrigger Binding="{Binding Checked}"
+											 Value="False">
+								<Setter Property="Visibility"
+											Value="Collapsed" />
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</StackPanel.Resources>
+				<CheckBox IsChecked="{Binding Checked}" VerticalContentAlignment="Center">Check me!</CheckBox>
+				<Separator />
+				<TextBlock Text="Checkbox is checked" />
+				<TextBlock Text="Checkbox is not checked">
+					<TextBlock.Style>
+						<Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+							<Setter Property="FontStyle" Value="Italic" />
+						</Style>
+					</TextBlock.Style>
+				</TextBlock>
 			</StackPanel>
 		</TabItem>
 	</TabControl>
