@@ -36,7 +36,7 @@
 				</StackPanel>
 			</StackPanel>
 		</TabItem>
-		<TabItem Header="Visibility Styling" IsSelected="True">
+		<TabItem Header="Visibility Styling">
 			<StackPanel>
 				<StackPanel.Resources>
 					<Style TargetType="TextBlock">
@@ -61,6 +61,21 @@
 						</Style>
 					</TextBlock.Style>
 				</TextBlock>
+			</StackPanel>
+		</TabItem>
+		<TabItem Header="List Control" IsSelected="True">
+			<StackPanel>
+				<ListView ItemsSource="{Binding AllVehicles}" SelectedItem="{Binding SelectedVehicle}">
+					<ListView.View>
+						<GridView>
+							<GridViewColumn Header="Make" DisplayMemberBinding="{Binding Make}" />
+							<GridViewColumn Header="Model" DisplayMemberBinding="{Binding Model}" />
+							<GridViewColumn Header="Cylinders" DisplayMemberBinding="{Binding Cylinders}" />
+							<GridViewColumn Header="HP" DisplayMemberBinding="{Binding Horsepower}" />
+						</GridView>
+					</ListView.View>
+				</ListView>
+				<TextBlock Text="{Binding SelectedVehicle, StringFormat={}Selected Vehicle:  {0}}" />
 			</StackPanel>
 		</TabItem>
 	</TabControl>

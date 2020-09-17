@@ -17,6 +17,13 @@ namespace WpfApp1
 		private bool _checked = false;
 		private string _message;
 		private int _outNumber = 0;
+		private Vehicle _selectedVehicle = null;
+		private List<Vehicle> _vehicles = new List<Vehicle>()
+		{
+			new Vehicle("Dodge", "Charger", 8, 400),
+			new Vehicle("Ford", "F-150", 8, 350),
+			new Vehicle("Honda", "Fit", 4, 120)
+		};
 
 		#endregion Fields
 
@@ -42,6 +49,15 @@ namespace WpfApp1
 
 		#region Properties
 
+		public List<Vehicle> AllVehicles
+		{
+			get => _vehicles;
+			set
+			{
+				_vehicles = value;
+				OnPropertyChanged();
+			}
+		}
 		public bool Checked
 		{
 			get => _checked;
@@ -66,6 +82,15 @@ namespace WpfApp1
 			set
 			{
 				_outNumber = value;
+				OnPropertyChanged();
+			}
+		}
+		public Vehicle SelectedVehicle
+		{
+			get => _selectedVehicle;
+			set
+			{
+				_selectedVehicle = value;
 				OnPropertyChanged();
 			}
 		}
